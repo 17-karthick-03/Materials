@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      img {
+        border-radius: 45%;
+        margin-top: 10px;
+        margin-left: 5%;
+        vertical-align: middle;
+      }
+      .ADMIN {
+        color: rgb(180, 180, 180);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        text-align: center;
+      }
+      .line {
+        border-bottom: 1.8px solid white;
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+      .container {
+        background-color: rgba(255, 255, 255, 0.1);
+        width: auto;
+        padding: 20px;
+        border-radius: 25px;
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 20px; /* Adjusted margin-bottom */
+        width: 300px;
+        margin: 0 auto;
+        transition: background-color 0.3s;
+        text-align: center; /* Center text horizontally */
+      }
+      .container:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .download-button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #31b1d8;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+      }
+      .download-button:hover {
+        background-color: #45a049; /* Darker green */
+      }
+      .download-icon {
+        font-size: 20px;
+      }
+      .TEXT {
+        color: white;
+        font-size: larger;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto; /* Center text horizontally */
+      }
+      .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .container + .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .container + .container + .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .container + .container + .container + .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .break-line {
+        border-bottom: 2px solid white;
+        width: 100%;
+        position: absolute;
+        bottom: 12%;
+      }
+      .developer-contact-1 {
+        color: rgb(180, 180, 180);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: auto;
+        text-align: center;
+        font-size: medium;
+        position: absolute;
+        bottom: 8%;
+        width: 100%; /* Added width */
+      }
+      .developer-contact-2 {
+        color: rgb(180, 180, 180);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: auto;
+        text-align: center;
+        font-size: medium;
+        position: absolute;
+        bottom: 5%;
+        width: 100%; /* Added width */
+      }
+      .UPI {
+        color: rgb(180, 180, 180);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: auto;
+        text-align: center;
+        font-size: medium;
+        position: absolute;
+        bottom: 1%;
+        width: 100%; /* Added width */
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(30, 30, 30)">
+    <p>
+      <img
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3i2hsldkR2wwDTsh8ezdV6CjCtGA4HY_OLTYrDSyUcRL5Vl214BidXit-gOP8Y9nipU9zRYzgxdm7WxqNiw5zZEH69eoHuyx3t1mjfu8Yo6PgPO8pmtbXctcTwKJDibZC0LRUq9YmKbqpCR8zFScaWen-VDTSn5VB2Oz1roTefi9vWv_l7Tn0qnsRHJY/s320/Profile%20Pic.jpg"
+        alt="Admin"
+        style="width: 80px"
+      />
+      <span class="ADMIN"><strong>17_karthick_03</strong></span>
+    </p>
+    <div class="line"></div>
+
+    <div class="container">
+      <p class="TEXT">Unit-1</p>
+      <a href="Unit_1.txt." download class="download-button">
+        <i class="fas fa-download download-icon"></i>
+      </a>
+    </div>
+    <div class="container">
+      <p class="TEXT">Unit-2</p>
+      <a href="Unit_2.txt" download class="download-button">
+        <i class="fas fa-download download-icon"></i>
+      </a>
+    </div>
+    <div class="container">
+      <p class="TEXT">Unit-3</p>
+      <a href="Unit_3.txt" download class="download-button">
+        <i class="fas fa-download download-icon"></i>
+      </a>
+    </div>
+    <div class="container">
+      <p class="TEXT">Unit-4</p>
+      <a href="Unit_4.txt" download class="download-button">
+        <i class="fas fa-download download-icon"></i>
+      </a>
+    </div>
+    <div class="container">
+      <p class="TEXT">Unit-5</p>
+      <a href="Unit_5.txt" download class="download-button">
+        <i class="fas fa-download download-icon"></i>
+      </a>
+    </div>
+
+    <b class="developer-contact-1"
+      >Buy me a cup of <i class="fas fa-coffee"></i
+    ></b>
+    <b class="developer-contact-2">Coffee (Rs:36.75) or Tea (Rs.12)</b>
+    <strong class="UPI">UPI id : 17-karthick-03.axl</strong>
+    <div class="break-line"></div>
+  </body>
+</html>
