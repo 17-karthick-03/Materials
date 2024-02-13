@@ -36,9 +36,7 @@
         padding: 20px;
         border-radius: 25px;
         position: relative;
-        margin-top: 30px;
-        margin-bottom: 20px; /* Adjusted margin-bottom */
-        width: 300px;
+        width: 250px;
         margin: 0 auto;
         transition: background-color 0.3s;
         text-align: center; /* Center text horizontally */
@@ -83,11 +81,39 @@
       .container + .container + .container + .container + .container {
         margin-top: 20px; /* Add space between containers */
       }
+      .Big-container {
+        background-color: rgba(255, 255, 255, 0);
+        width: 75%;
+        padding: 30px;
+        border-radius: 25px;
+        position: relative;
+        margin: 50px auto; /* Center container horizontally and provide top margin */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .Big-container:hover {
+        background-color: rgba(255, 255, 255, 0.025);
+      }
+      .COFFEE {
+        background-color: black;
+      }
+      .Top-Topic-Container {
+        background-color: rgba(255, 255, 255, 0.1);
+        width: auto;
+        padding: 10px;
+        border-radius: 25px;
+        margin-bottom: 20px; /* Add margin bottom */
+        text-align: center;
+        font-size: 2vh;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
       .break-line {
-        border-bottom: 2px solid white;
+        border-bottom: 3px solid white;
         width: 100%;
-        position: absolute;
-        bottom: 12%;
+        position: fixed;
+        bottom: 9%;
       }
       .developer-contact-1 {
         color: rgb(180, 180, 180);
@@ -95,8 +121,8 @@
         margin: auto;
         text-align: center;
         font-size: medium;
-        position: absolute;
-        bottom: 8%;
+        position: fixed;
+        bottom: 6%;
         width: 100%; /* Added width */
       }
       .developer-contact-2 {
@@ -105,8 +131,8 @@
         margin: auto;
         text-align: center;
         font-size: medium;
-        position: absolute;
-        bottom: 5%;
+        position: fixed;
+        bottom: 3%;
         width: 100%; /* Added width */
       }
       .UPI {
@@ -115,13 +141,13 @@
         margin: auto;
         text-align: center;
         font-size: medium;
-        position: absolute;
-        bottom: 1%;
+        position: fixed;
+        bottom: 0%;
         width: 100%; /* Added width */
       }
     </style>
   </head>
-  <body style="background-color: rgb(30, 30, 30)">
+  <body style="background-color: rgb(28, 28, 28)">
     <p>
       <img
         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3i2hsldkR2wwDTsh8ezdV6CjCtGA4HY_OLTYrDSyUcRL5Vl214BidXit-gOP8Y9nipU9zRYzgxdm7WxqNiw5zZEH69eoHuyx3t1mjfu8Yo6PgPO8pmtbXctcTwKJDibZC0LRUq9YmKbqpCR8zFScaWen-VDTSn5VB2Oz1roTefi9vWv_l7Tn0qnsRHJY/s320/Profile%20Pic.jpg"
@@ -131,37 +157,85 @@
       <span class="ADMIN"><strong>17_karthick_03</strong></span>
     </p>
     <div class="line"></div>
-
-    <div class="container">
-      <p class="TEXT">Unit-1</p>
-      <a href="Unit_1.txt" download class="download-button">
-        <i class="fas fa-download download-icon"></i>
-      </a>
+    <div class="Big-container">
+      <div class="Top-Topic-Container">
+        <h1 style="color: rgb(150, 150, 170)">
+          Probability and Queuing Theory
+        </h1>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-1</p>
+        <a href="Unit_1.txt." download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-2</p>
+        <a href="Unit_2.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-3</p>
+        <a href="Unit_3.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-4</p>
+        <a href="Unit_4.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-5</p>
+        <a href="Unit_5.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
     </div>
-    <div class="container">
-      <p class="TEXT">Unit-2</p>
-      <a href="Unit_2.txt" download class="download-button">
-        <i class="fas fa-download download-icon"></i>
-      </a>
+    <div class="Big-container">
+      <div class="Top-Topic-Container">
+        <h1 style="color: rgb(150, 150, 170)">Computer Architecture</h1>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-1</p>
+        <a href="Unit_1.txt." download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-2</p>
+        <a href="Unit_2.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-3</p>
+        <a href="Unit_3.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-4</p>
+        <a href="Unit_4.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
+      <div class="container">
+        <p class="TEXT">Unit-5</p>
+        <a href="Unit_5.txt" download class="download-button">
+          <i class="fas fa-download download-icon"></i>
+        </a>
+      </div>
     </div>
-    <div class="container">
-      <p class="TEXT">Unit-3</p>
-      <a href="Unit_3.txt" download class="download-button">
-        <i class="fas fa-download download-icon"></i>
-      </a>
+    <div class="COFFEE">
+      <b class="developer-contact-1"
+        >Buy me a cup of <i class="fas fa-coffee"></i
+      ></b>
+      <b class="developer-contact-2">Coffee (Rs:36.75) or Tea (Rs.12)</b>
+      <strong class="UPI">UPI id : 17-karthick-03.axl</strong>
+      <div class="break-line"></div>
     </div>
-    <div class="container">
-      <p class="TEXT">Unit-4</p>
-      <a href="Unit_4.txt" download class="download-button">
-        <i class="fas fa-download download-icon"></i>
-      </a>
-    </div>
-
-    <b class="developer-contact-1"
-      >Buy me a cup of <i class="fas fa-coffee"></i
-    ></b>
-    <b class="developer-contact-2">Coffee (Rs:36.75) or Tea (Rs.12)</b>
-    <strong class="UPI">UPI id : 17-karthick-03.axl</strong>
-    <div class="break-line"></div>
   </body>
 </html>
