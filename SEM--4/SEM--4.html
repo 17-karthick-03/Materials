@@ -8,11 +8,10 @@
       rel="icon"
       href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRmoocE_3kDllUwV5siGiUdRjTQHul2D2RYPijgWLcpKmndsj-38NyzUmKPfQiHcOG_M3QPwysNrEcl0NtzBXV0-a6U0GHAEY29VBTkfMWDjLPvqc6qLolRHHcf7tJic2COHosVsvT4n5BlfqM9XdhsM92mbBSkd83znRTSICxJHgAH1N3bLA4uGjG-G4/s320/ICON.png"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
     <style>
+      .body {
+        background-color: #0c0a0a;
+      }
       img {
         border-radius: 45%;
         margin-top: 10px;
@@ -39,10 +38,10 @@
         background-color: rgba(255, 255, 255, 0.05);
         width: auto;
         padding: 20px;
-        cursor: pointer;
         border-radius: 25px;
         position: relative;
         width: 80%;
+        cursor: pointer;
         margin: 0 auto;
         transition: background-color 0.3s;
         text-align: center; /* Center text horizontally */
@@ -59,25 +58,6 @@
         text-align: center;
         font-size: 13px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-      .download-button {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background-color: #31b1d8;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        text-decoration: none;
-      }
-      .download-button:hover {
-        background-color: #45a049; /* Darker green */
-      }
-      .download-icon {
-        font-size: 20px;
       }
       .TEXT {
         color: #ffffff;
@@ -112,6 +92,11 @@
       .Big-container:hover {
         background-color: rgba(255, 255, 255, 0.025);
       }
+      .popup-payment {
+        width: 40%;
+        object-fit: cover;
+        border-radius: 0;
+      }
       @media only screen and (max-width: 600px) {
         /* Adjust container size to 80% on mobile screens */
         .Big-container {
@@ -123,6 +108,19 @@
         .Top-Topic-Container {
           width: 95%;
           font-size: 12px;
+        }
+        .body {
+          background-color: #0c0a0a;
+          background-image: url(https://images.pexels.com/photos/2010877/pexels-photo-2010877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 120%
+        }
+        .popup-payment {
+          width: 100%;
+          margin: 0 auto;
+          object-fit: cover;
+          border-radius: 0;
         }
       }
 
@@ -139,11 +137,12 @@
           font-size: 13px;
         }
       }
+
       .COFFEE {
         background-color: #111111;
         position: fixed;
         bottom: 0;
-        left: 0;0
+        left: 0;
         width: 100%;
         padding: 20px;
         text-align: center;
@@ -163,155 +162,149 @@
         font-size: medium;
         text-align: center;
       }
+      .popup-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 1);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        z-index: 9999;
+      }
+
+      /* Styles for the close button */
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: white;
+      }
     </style>
   </head>
-  <body style="background-color: #0c0a0a">
+  <body class="body">
     <p>
       <img src="Profile Pic.jpg" alt="Admin" style="width: 80px" />
       <span class="ADMIN"><strong>17-karthick-03</strong></span>
     </p>
     <div class="line"></div>
+    <div class="popup-container" id="popup">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Thanks for downloading!!!</h2>
+      <h3>Buy me a cup of Tea &#128578;</h3>
+      <img src="Payment.jpg" alt="17-karthick-03@axl" class="popup-payment" />
+    </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
         <h1 style="color: rgb(150, 150, 170)">
-          Database Management Systems - Lab <br>
+          Database Management Systems - Lab <br />
           (DBMS - Lab)
         </h1>
       </div>
-      <div class="container" data-url="DBMS-LAB Manual.pdf">
+      <div
+        class="container"
+        data-url="DBMS-LAB Manual.pdf"
+        onclick="showPopup()"
+      >
         <p class="TEXT">Lab Manual</p>
-        <a href="DBMS-LAB Manual.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
       </div>
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
         <h1 style="color: rgb(150, 150, 170)">
-          Object Oriented Analysis and Design - Lab<br>
+          Object Oriented Analysis and Design - Lab<br />
           (OOAD - Lab)
         </h1>
       </div>
-      <div class="container" data-url="OOAD-LAB Manual.pdf">
+      <div class="container" data-url="OOAD-LAB Manual.pdf" onclick="showPopup()">
         <p class="TEXT">Lab Manual</p>
-        <a href="OOAD-LAB Manual.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
       </div>
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
         <h1 style="color: rgb(150, 150, 170)">
-          Probability and Queuing Theory<br>
+          Probability and Queuing Theory<br />
           (PQT)
         </h1>
       </div>
-      <div class="container" data-url="PQT QB-New.pdf">
+      <div class="container" data-url="PQT QB-New.pdf" onclick="showPopup()">
         <p class="TEXT">Ques-Bank New</p>
-        <a href="PQT QB-New.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
-      </div>
-    </div>
-    <div class="Big-container">
-      <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">Database Management Systems<br>(DBMS)</h1>
-      </div>
-      <div class="container" data-url="Silberschatz_A_databases_6th_ed.pdf">
-        <p class="TEXT">Text Book</p>
-        <a
-          href="Silberschatz_A_databases_6th_ed.pdf"
-          download
-          class="download-button"
-        >
-          <i class="fas fa-download download-icon"></i>
-        </a>
-      </div>
-      <div class="container" data-url="DBMS QB-Old.pdf">
-        <p class="TEXT">Ques-Bank Old</p>
-        <a href="DBMS QB-Old.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
       </div>
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
         <h1 style="color: rgb(150, 150, 170)">
-          Design and Analysis of Algorithm<br>
+          Database Management Systems<br />(DBMS)
+        </h1>
+      </div>
+      <div class="container" data-url="Silberschatz_A_databases_6th_ed.pdf" onclick="showPopup()">
+        <p class="TEXT">Text Book</p>
+      </div>
+      <div class="container" data-url="DBMS QB-Old.pdf" onclick="showPopup()">
+        <p class="TEXT">Ques-Bank Old</p>
+      </div>
+    </div>
+    <div class="Big-container">
+      <div class="Top-Topic-Container">
+        <h1 style="color: rgb(150, 150, 170)">
+          Design and Analysis of Algorithm<br />
           (DAA)
         </h1>
       </div>
 
-      <div class="container" data-url="Introduction-to-the-Design-and-Analysis-of-Algorithms-3rd-edition-booksfree.org_.pdf">
+      <div
+        class="container" onclick="showPopup()"
+        data-url="Introduction-to-the-Design-and-Analysis-of-Algorithms-3rd-edition-booksfree.org_.pdf"
+      >
         <p class="TEXT">Text Book</p>
-        <a
-          href="Introduction-to-the-Design-and-Analysis-of-Algorithms-3rd-edition-booksfree.org_.pdf"
-          download
-          class="download-button"
-        >
-          <i class="fas fa-download download-icon"></i>
-        </a>
       </div>
-      <div class="container" data-url="DAA QB-Old.pdf">
+      <div class="container" data-url="DAA QB-Old.pdf" onclick="showPopup()">
         <p class="TEXT">Ques-Bank Old</p>
-        <a href="DAA QB-Old.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
-      </div>
-    </div>
-    <div class="Big-container">
-      <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">Computer Architecture<br>(CA)</h1>
-      </div>
-      <div class="container" data-url="Computer-organization-and-design-5-th-edition-patterson-hennessy.pdf">
-        <p class="TEXT">Text Book</p>
-        <a
-          href="Computer-organization-and-design-5-th-edition-patterson-hennessy.pdf"
-          download
-          class="download-button"
-        >
-          <i class="fas fa-download download-icon"></i>
-        </a>
-      </div>
-      <div class="container" data-url="CA QB-Old.pdf">
-        <p class="TEXT">Ques-Bank Old</p>
-        <a href="CA QB-Old.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
       </div>
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
         <h1 style="color: rgb(150, 150, 170)">
-          Object Oriented Analysis and Design<br>(OOAD)
+          Computer Architecture<br />(CA)
         </h1>
       </div>
-      <div class="container" data-url="applying-uml-and-patterns-an-introduction-to-object-oriented-analysis-and-design-and-iterative-development.pdf">
+      <div
+        class="container" onclick="showPopup()"
+        data-url="Computer-organization-and-design-5-th-edition-patterson-hennessy.pdf"
+      >
         <p class="TEXT">Text Book</p>
-        <a
-          href="applying-uml-and-patterns-an-introduction-to-object-oriented-analysis-and-design-and-iterative-development.pdf"
-          download
-          class="download-button"
-        >
-          <i class="fas fa-download download-icon"></i>
-        </a>
       </div>
-      <div class="container" data-url="OOAD QB-Old.pdf">
+      <div class="container" onclick="showPopup()" data-url="CA QB-Old.pdf">
         <p class="TEXT">Ques-Bank Old</p>
-        <a href="OOAD QB-Old.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
       </div>
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">Professional Ethics<br>(PE)</h1>
+        <h1 style="color: rgb(150, 150, 170)">
+          Object Oriented Analysis and Design<br />(OOAD)
+        </h1>
       </div>
-      <div class="container" data-url="PE QB-Old.pdf">
+      <div
+        class="container" onclick="showPopup()"
+        data-url="applying-uml-and-patterns-an-introduction-to-object-oriented-analysis-and-design-and-iterative-development.pdf"
+      >
+        <p class="TEXT">Text Book</p>
+      </div>
+      <div class="container" onclick="showPopup()" data-url="OOAD QB-Old.pdf">
         <p class="TEXT">Ques-Bank Old</p>
-        <a href="PE QB-Old.pdf" download class="download-button">
-          <i class="fas fa-download download-icon"></i>
-        </a>
+      </div>
+    </div>
+    <div class="Big-container">
+      <div class="Top-Topic-Container">
+        <h1 style="color: rgb(150, 150, 170)">Professional Ethics<br />(PE)</h1>
+      </div>
+      <div class="container" onclick="showPopup()" data-url="PE QB-Old.pdf">
+        <p class="TEXT">Ques-Bank Old</p>
       </div>
       <p></p>
     </div>
@@ -319,31 +312,38 @@
       <p></p>
       <b class="UPI">Buy me a cup of <i class="fas fa-coffee"></i></b>
       <div></div>
-      <b class="UPI">Coffee (Rs:36.75) or Tea (Rs:12)</b>
+      <b class="UPI">Coffee (Rs:36.75) or Tea (Rs:15)</b>
       <div></div>
       <strong class="UPI">UPI ID : 17-karthick-03@axl</strong>
       <div></div>
       <p></p>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         var containers = document.querySelectorAll(".container");
 
-        containers.forEach(function(container) {
-          container.addEventListener("click", function() {
+        containers.forEach(function (container) {
+          container.addEventListener("click", function () {
             var url = container.getAttribute("data-url");
-            
+
             var link = document.createElement("a");
             link.href = url;
             link.download = "";
-            
+
             document.body.appendChild(link);
             link.click();
-            
+
             document.body.removeChild(link);
           });
         });
       });
-      </script>
+      function showPopup() {
+        document.getElementById("popup").style.display = "block";
+      }
+
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+    </script>
   </body>
 </html>
