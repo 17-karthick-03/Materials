@@ -147,12 +147,18 @@
         #PAY-Gpay{
           display: block;
         }
+        #UPI-2{
+          display: none;
+        }
       }
 
       @media only screen and (min-width: 751px) {
         /* Adjust container size to 60% on screens wider than 600px */
         .Big-container {
           width: 50%;
+        }
+        #PAY-Gpay-2{
+          display: none;
         }
         .container {
           width: 40%;
@@ -371,7 +377,15 @@
       <div></div>
       <b class="UPI">Coffee (Rs:36.75) or Tea (Rs:15)</b>
       <div></div>
-      <strong class="UPI">UPI ID : 17-karthick-03@axl</strong>
+      <strong id="UPI-2" class="UPI">UPI ID : 17-karthick-03@axl</strong>
+      <a
+        href="https://pay.google.com/payments/u/0/sendMoney"
+        target="_blank"
+        rel="17-karthick-03@axl"
+        onclick="handlePayment(event)"
+      >
+        <button id="PAY-Gpay-2" class="PAY">Pay</button>
+      </a>
       <div></div>
       <p></p>
     </div>
