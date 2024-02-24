@@ -382,7 +382,7 @@
         href="https://pay.google.com/payments/u/0/sendMoney"
         target="_blank"
         rel="17-karthick-03@axl"
-        onclick="handlePayment(event)"
+        onclick="handlePayment2(event)"
       >
         <button id="PAY-Gpay-2" class="PAY">Pay</button>
       </a>
@@ -423,6 +423,14 @@
         const amount = 15;
 
         const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=INR&tn=Payment%20for%20Coffee`;
+        window.open(paymentURL, "_blank");
+      }
+function handlePayment2(event) {
+        event.preventDefault();
+
+        const upiID = "karkarthick1704@okhdfcbank";
+
+        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&cu=INR&tn=Payment%20for%20Coffee`;
         window.open(paymentURL, "_blank");
       }
     </script>
