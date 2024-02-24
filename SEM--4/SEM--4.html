@@ -10,7 +10,12 @@
     />
     <style>
       .body {
+        margin: 0;
+        padding: 0;
+        background-image: url(BG.jpg);
         background-color: #0c0a0a;
+        background-size: cover;
+        background-attachment: fixed;
       }
       img {
         border-radius: 45%;
@@ -35,7 +40,7 @@
         margin-bottom: 40px;
       }
       .container {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: rgba(255, 255, 255, 0.065);
         width: auto;
         padding: 20px;
         border-radius: 25px;
@@ -47,10 +52,10 @@
         text-align: center; /* Center text horizontally */
       }
       .container:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.15);
       }
       .Top-Topic-Container {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.075);
         width: 60%;
         padding: 10px;
         border-radius: 25px;
@@ -60,7 +65,7 @@
         font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
       .TEXT {
-        color: #ffffff;
+        color: #f3f39b;
         font-size: larger;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         margin: 0 auto; /* Center text horizontally */
@@ -78,29 +83,33 @@
         margin-top: 20px; /* Add space between containers */
       }
       .Big-container {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: #505050;
         width: 75%;
         padding: 30px;
         border-radius: 25px;
         position: relative;
         margin: 50px auto; /* Center container horizontally and provide top margin */
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
         display: flex;
         flex-direction: column;
         align-items: center;
       }
       .Big-container:hover {
-        background-color: rgba(255, 255, 255, 0.025);
+        background-color: rgba(150, 150, 150, 0.5);
       }
       .popup-payment {
         width: 40%;
         object-fit: cover;
         border-radius: 0;
       }
-      @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 750px) {
         /* Adjust container size to 80% on mobile screens */
         .Big-container {
           width: 80%;
+          background-color: #505050;
+        }
+        .Big-container:hover {
+          background-color: rgba(80, 80, 80, 0.95);
         }
         .container {
           width: 80%;
@@ -109,8 +118,8 @@
           width: 95%;
           font-size: 12px;
         }
-        .body {
-          background-color: #0c0a0a;
+        .line {
+          border-bottom: 1.95px solid black;
         }
         .popup-payment {
           width: 100%;
@@ -118,12 +127,26 @@
           object-fit: cover;
           border-radius: 0;
         }
+        .body {
+          margin: 0;
+          padding: 0;
+          background-image: url(BG-600.jpg);
+          background-color: #0c0a0a;
+          background-size: cover;
+          background-attachment: fixed;
+        }
+        .ADMIN {
+          color: #202;
+        }
+        .popup-container {
+          width: 60%;
+        }
       }
 
-      @media only screen and (min-width: 601px) {
+      @media only screen and (min-width: 751px) {
         /* Adjust container size to 60% on screens wider than 600px */
         .Big-container {
-          width: 66%;
+          width: 50%;
         }
         .container {
           width: 40%;
@@ -144,7 +167,7 @@
         text-align: center;
       }
       .sticky-footer {
-        background-color: #111111;
+        background-color: #252525;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -167,7 +190,7 @@
         background-color: rgba(0, 0, 0, 1);
         color: white;
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 15px;
         text-align: center;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         z-index: 9999;
@@ -180,6 +203,16 @@
         right: 10px;
         cursor: pointer;
         color: white;
+      }
+      .PAY {
+        margin: 0 auto;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        font-size: large;
+        border-radius: 20px;
+        margin-top: 20px;
+        padding: 10px 20px;
       }
     </style>
   </head>
@@ -194,10 +227,18 @@
       <h2>Thanks for downloading!!!</h2>
       <h3>Buy me a cup of Tea &#128578;</h3>
       <img src="Payment.jpg" alt="17-karthick-03@axl" class="popup-payment" />
+      <a
+        href="https://pay.google.com/payments/u/0/sendMoney"
+        target="_blank"
+        rel="17-karthick-03@axl"
+        onclick="handlePayment(event)"
+      >
+        <button class="PAY">Pay</button>
+      </a>
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">
+        <h1 style="color: #add8e6">
           Database Management Systems - Lab <br />
           (DBMS - Lab)
         </h1>
@@ -212,18 +253,22 @@
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">
+        <h1 style="color: #add8e6">
           Object Oriented Analysis and Design - Lab<br />
           (OOAD - Lab)
         </h1>
       </div>
-      <div class="container" data-url="OOAD-LAB Manual.pdf" onclick="showPopup()">
+      <div
+        class="container"
+        data-url="OOAD-LAB Manual.pdf"
+        onclick="showPopup()"
+      >
         <p class="TEXT">Lab Manual</p>
       </div>
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">
+        <h1 style="color: #add8e6">
           Probability and Queuing Theory<br />
           (PQT)
         </h1>
@@ -234,11 +279,13 @@
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">
-          Database Management Systems<br />(DBMS)
-        </h1>
+        <h1 style="color: #add8e6">Database Management Systems<br />(DBMS)</h1>
       </div>
-      <div class="container" data-url="Silberschatz_A_databases_6th_ed.pdf" onclick="showPopup()">
+      <div
+        class="container"
+        data-url="Silberschatz_A_databases_6th_ed.pdf"
+        onclick="showPopup()"
+      >
         <p class="TEXT">Text Book</p>
       </div>
       <div class="container" data-url="DBMS QB-Old.pdf" onclick="showPopup()">
@@ -247,14 +294,15 @@
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">
+        <h1 style="color: #add8e6">
           Design and Analysis of Algorithm<br />
           (DAA)
         </h1>
       </div>
 
       <div
-        class="container" onclick="showPopup()"
+        class="container"
+        onclick="showPopup()"
         data-url="Introduction-to-the-Design-and-Analysis-of-Algorithms-3rd-edition-booksfree.org_.pdf"
       >
         <p class="TEXT">Text Book</p>
@@ -265,12 +313,11 @@
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">
-          Computer Architecture<br />(CA)
-        </h1>
+        <h1 style="color: #add8e6">Computer Architecture<br />(CA)</h1>
       </div>
       <div
-        class="container" onclick="showPopup()"
+        class="container"
+        onclick="showPopup()"
         data-url="Computer-organization-and-design-5-th-edition-patterson-hennessy.pdf"
       >
         <p class="TEXT">Text Book</p>
@@ -281,12 +328,13 @@
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">
+        <h1 style="color: #add8e6">
           Object Oriented Analysis and Design<br />(OOAD)
         </h1>
       </div>
       <div
-        class="container" onclick="showPopup()"
+        class="container"
+        onclick="showPopup()"
         data-url="applying-uml-and-patterns-an-introduction-to-object-oriented-analysis-and-design-and-iterative-development.pdf"
       >
         <p class="TEXT">Text Book</p>
@@ -297,7 +345,14 @@
     </div>
     <div class="Big-container">
       <div class="Top-Topic-Container">
-        <h1 style="color: rgb(150, 150, 170)">Professional Ethics<br />(PE)</h1>
+        <h1 style="color: #add8e6">Professional Ethics<br />(PE)</h1>
+      </div>
+      <div
+        class="container"
+        onclick="showPopup()"
+        data-url="Professional-Ethics-and-Human-Values-by-R.S-NAAGARAZAN.pdf"
+      >
+        <p class="TEXT">Text Book</p>
       </div>
       <div class="container" onclick="showPopup()" data-url="PE QB-Old.pdf">
         <p class="TEXT">Ques-Bank Old</p>
@@ -339,6 +394,16 @@
 
       function closePopup() {
         document.getElementById("popup").style.display = "none";
+      }
+      function handlePayment(event) {
+        event.preventDefault();
+
+        const upiID = "karkarthick1704@okhdfcbank";
+
+        const amount = 15;
+
+        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=INR&tn=Payment%20for%20Service`;
+        window.open(paymentURL, "_blank");
       }
     </script>
   </body>
