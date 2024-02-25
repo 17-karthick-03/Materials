@@ -9,7 +9,16 @@
       href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRmoocE_3kDllUwV5siGiUdRjTQHul2D2RYPijgWLcpKmndsj-38NyzUmKPfQiHcOG_M3QPwysNrEcl0NtzBXV0-a6U0GHAEY29VBTkfMWDjLPvqc6qLolRHHcf7tJic2COHosVsvT4n5BlfqM9XdhsM92mbBSkd83znRTSICxJHgAH1N3bLA4uGjG-G4/s320/ICON.png"
     />
     <style>
-      #PAY-Gpay{
+      #OR{
+        display: block;
+      }
+      #Coffee{
+        display: none;
+      }
+      #QR-PAY{
+        display: none;
+      }
+      #PAY-Gpay {
         display: none;
       }
       .body {
@@ -103,7 +112,7 @@
       .popup-payment {
         width: 40%;
         object-fit: cover;
-        border-radius: 0;
+        border-radius: 10px;
       }
       @media only screen and (max-width: 750px) {
         /* Adjust container size to 80% on mobile screens */
@@ -128,7 +137,7 @@
           width: 100%;
           margin: 0 auto;
           object-fit: cover;
-          border-radius: 0;
+          border-radius: 20px;
         }
         .body {
           margin: 0;
@@ -144,11 +153,20 @@
         .popup-container {
           width: 60%;
         }
-        #PAY-Gpay{
+        #PAY-Gpay {
           display: block;
         }
-        #UPI-2{
+        #UPI-2 {
           display: none;
+        }
+        #QR {
+          display: none;
+        }
+        #Coffee {
+          display: block;
+        }
+        #QR-PAY{
+          display: block;
         }
       }
 
@@ -157,7 +175,7 @@
         .Big-container {
           width: 50%;
         }
-        #PAY-Gpay-2{
+        #PAY-Gpay-2 {
           display: none;
         }
         .container {
@@ -237,15 +255,21 @@
     <div class="popup-container" id="popup">
       <span class="close-btn" onclick="closePopup()">&times;</span>
       <h2>Thanks for downloading!!!</h2>
-      <h3>Buy me a cup of Tea &#128578;</h3>
-      <img src="Payment.jpg" alt="17-karthick-03@axl" class="popup-payment" />
+      <h3>Buy me a cup of Coffee &#128578;</h3>
+      <img id="Coffee" src="Coffee.jpg" alt="Coffee" class="popup-payment" />
+      <img
+        id="QR"
+        src="Payment.jpg"
+        alt="17-karthick-03@axl"
+        class="popup-payment"
+      />
       <a
         href="https://pay.google.com/payments/u/0/sendMoney"
         target="_blank"
         rel="17-karthick-03@axl"
         onclick="handlePayment(event)"
       >
-        <button class="PAY">Pay</button>
+        <button id="QR-PAY" class="PAY">Pay</button>
       </a>
     </div>
     <div class="Big-container">
@@ -425,12 +449,12 @@
         const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=INR&tn=Payment%20for%20Coffee`;
         window.open(paymentURL, "_blank");
       }
-function handlePayment2(event) {
+      function handlePayment2(event) {
         event.preventDefault();
 
         const upiID = "karkarthick1704@okhdfcbank";
 
-                const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&cu=INR&tn=Payment%20for%20Coffee(Rs 36.75)%20or%20Tea(Rs 15)`;
+        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&cu=INR&tn=Payment%20for%20Coffee(Rs 36.75)%20or%20Tea(Rs 15)`;
         window.open(paymentURL, "_blank");
       }
     </script>
