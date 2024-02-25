@@ -17,6 +17,7 @@
       }
       #QR-PAY{
         display: none;
+        text-decoration: none;
       }
       #PAY-Gpay {
         display: none;
@@ -167,6 +168,11 @@
         }
         #QR-PAY{
           display: block;
+          text-decoration:none;
+          
+        }
+        .PAY{
+          text-decoration: none;
         }
       }
 
@@ -239,11 +245,17 @@
         background-color: #4caf50;
         color: white;
         border: none;
-        text-decoration: none;
         font-size: large;
         border-radius: 20px;
         margin-top: 20px;
+        text-decoration: none;
         padding: 10px 20px;
+      }
+      a{
+        text-decoration: none;
+      }
+      .no-underline{
+        text-decoration: none;
       }
     </style>
   </head>
@@ -269,6 +281,7 @@
         target="_blank"
         rel="17-karthick-03@axl"
         onclick="handlePayment(event)"
+        class="no-underline"
       >
         <button id="QR-PAY" class="PAY">Pay</button>
       </a>
