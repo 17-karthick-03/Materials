@@ -9,13 +9,13 @@
       href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRmoocE_3kDllUwV5siGiUdRjTQHul2D2RYPijgWLcpKmndsj-38NyzUmKPfQiHcOG_M3QPwysNrEcl0NtzBXV0-a6U0GHAEY29VBTkfMWDjLPvqc6qLolRHHcf7tJic2COHosVsvT4n5BlfqM9XdhsM92mbBSkd83znRTSICxJHgAH1N3bLA4uGjG-G4/s320/ICON.png"
     />
     <style>
-      #OR{
+      #OR {
         display: block;
       }
-      #Coffee{
+      #Coffee {
         display: none;
       }
-      #QR-PAY{
+      #QR-PAY {
         display: none;
         text-decoration: none;
       }
@@ -49,8 +49,8 @@
         border-bottom: 1.8px solid white;
         width: 100%;
         display: block;
-        margin-top: 20px;
-        margin-bottom: 40px;
+        margin-top: 30px;
+        margin-bottom: 20px;
       }
       .container {
         background-color: rgba(255, 255, 255, 0.065);
@@ -115,7 +115,7 @@
         object-fit: cover;
         border-radius: 10px;
       }
-      @media only screen and (max-width: 750px) {
+      @media only screen and (max-width: 650px) {
         /* Adjust container size to 80% on mobile screens */
         .Big-container {
           width: 80%;
@@ -166,17 +166,45 @@
         #Coffee {
           display: block;
         }
-        #QR-PAY{
+        #QR-PAY {
           display: block;
-          text-decoration:none;
-          
-        }
-        .PAY{
           text-decoration: none;
+        }
+        .PAY {
+          text-decoration: none;
+        }
+        .button-container {
+          display: block;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .button-container button {
+          margin: 5px;
+          border-radius: 10px;
+          color: #252525;
+          background-color: rgb(40, 187, 126);
+          border: none;
+          padding: 10px 10px;
+          font-size: large;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .line-2 {
+          display: block;
+          width: 100%;
+          display: block;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          border-bottom: 1.95px solid black;
         }
       }
 
-      @media only screen and (min-width: 751px) {
+      @media only screen and (min-width: 651px) {
+        .line-2 {
+          display: none;
+        }
+        .button-container {
+          display: none;
+        }
         /* Adjust container size to 60% on screens wider than 600px */
         .Big-container {
           width: 50%;
@@ -251,10 +279,10 @@
         text-decoration: none;
         padding: 10px 20px;
       }
-      a{
+      a {
         text-decoration: none;
       }
-      .no-underline{
+      .no-underline {
         text-decoration: none;
       }
     </style>
@@ -286,7 +314,15 @@
         <button id="QR-PAY" class="PAY">Pay</button>
       </a>
     </div>
-    <div class="Big-container">
+    <div class="button-container">
+      <button onclick="scrollToContainer('OOAD')">OOAD</button>
+      <button onclick="scrollToContainer('DAA')">DAA</button>
+      <button onclick="scrollToContainer('DBMS')">DBMS</button>
+      <button onclick="scrollToContainer('PE')">PE</button>
+      <button onclick="scrollToContainer('PQT')">PQT</button>
+    </div>
+    <div class="line-2"></div>
+    <div class="Big-container" style="margin-top: 15px">
       <div class="Top-Topic-Container">
         <h1 style="color: #add8e6">
           Database Management Systems - Lab <br />
@@ -316,7 +352,7 @@
         <p class="TEXT">Lab Manual</p>
       </div>
     </div>
-    <div class="Big-container">
+    <div class="Big-container" id="PQT">
       <div class="Top-Topic-Container">
         <h1 style="color: #add8e6">
           Probability and Queuing Theory<br />
@@ -327,7 +363,7 @@
         <p class="TEXT">Ques-Bank New</p>
       </div>
     </div>
-    <div class="Big-container">
+    <div class="Big-container" id="DBMS">
       <div class="Top-Topic-Container">
         <h1 style="color: #add8e6">Database Management Systems<br />(DBMS)</h1>
       </div>
@@ -338,11 +374,11 @@
       >
         <p class="TEXT">Text Book</p>
       </div>
-      <div class="container" data-url="DBMS QB-New.pdf" onclick="showPopup()">
-        <p class="TEXT">Ques-Bank New</p>
+      <div class="container" data-url="DBMS QB-Old.pdf" onclick="showPopup()">
+        <p class="TEXT">Ques-Bank Old</p>
       </div>
     </div>
-    <div class="Big-container">
+    <div class="Big-container" id="DAA">
       <div class="Top-Topic-Container">
         <h1 style="color: #add8e6">
           Design and Analysis of Algorithm<br />
@@ -361,22 +397,22 @@
         <p class="TEXT">Ques-Bank Old</p>
       </div>
     </div>
-    <div class="Big-container">
+    <div class="Big-container" id="CA">
       <div class="Top-Topic-Container">
         <h1 style="color: #add8e6">Computer Architecture<br />(CA)</h1>
       </div>
       <div
         class="container"
         onclick="showPopup()"
-        data-url="Computer-organization-and-design-5th-edition.pdf"
+        data-url="Computer-organization-and-design-5-th-edition-patterson-hennessy.pdf"
       >
         <p class="TEXT">Text Book</p>
       </div>
-      <div class="container" onclick="showPopup()" data-url="CA QB-New.pdf">
-        <p class="TEXT">Ques-Bank New</p>
+      <div class="container" onclick="showPopup()" data-url="CA QB-Old.pdf">
+        <p class="TEXT">Ques-Bank Old</p>
       </div>
     </div>
-    <div class="Big-container">
+    <div class="Big-container" id="OOAD">
       <div class="Top-Topic-Container">
         <h1 style="color: #add8e6">
           Object Oriented Analysis and Design<br />(OOAD)
@@ -389,11 +425,11 @@
       >
         <p class="TEXT">Text Book</p>
       </div>
-      <div class="container" onclick="showPopup()" data-url="OOAD QB-New.pdf">
-        <p class="TEXT">Ques-Bank New</p>
+      <div class="container" onclick="showPopup()" data-url="OOAD QB-Old.pdf">
+        <p class="TEXT">Ques-Bank Old</p>
       </div>
     </div>
-    <div class="Big-container">
+    <div class="Big-container" id="PE">
       <div class="Top-Topic-Container">
         <h1 style="color: #add8e6">Professional Ethics<br />(PE)</h1>
       </div>
@@ -404,10 +440,9 @@
       >
         <p class="TEXT">Text Book</p>
       </div>
-      <div class="container" onclick="showPopup()" data-url="PE QB-New.pdf">
-        <p class="TEXT">Ques-Bank New</p>
+      <div class="container" onclick="showPopup()" data-url="PE QB-Old.pdf">
+        <p class="TEXT">Ques-Bank Old</p>
       </div>
-      <p></p>
       <p></p>
     </div>
     <div class="sticky-footer">
@@ -471,6 +506,13 @@
 
         const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&cu=INR&tn=Payment%20for%20Coffee(Rs 36.75)%20or%20Tea(Rs 15)`;
         window.open(paymentURL, "_blank");
+      }
+      function scrollToContainer(containerId) {
+        var container = document.getElementById(containerId);
+        if (container) {
+          // Scroll to the top of the container with smooth behavior
+          container.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
       }
     </script>
   </body>
