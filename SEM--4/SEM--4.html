@@ -8,6 +8,10 @@
       rel="icon"
       href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRmoocE_3kDllUwV5siGiUdRjTQHul2D2RYPijgWLcpKmndsj-38NyzUmKPfQiHcOG_M3QPwysNrEcl0NtzBXV0-a6U0GHAEY29VBTkfMWDjLPvqc6qLolRHHcf7tJic2COHosVsvT4n5BlfqM9XdhsM92mbBSkd83znRTSICxJHgAH1N3bLA4uGjG-G4/s320/ICON.png"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
       #OR {
         display: block;
@@ -29,6 +33,10 @@
         background-color: #0c0a0a;
         background-size: cover;
         background-attachment: fixed;
+      }
+      .UPLOAD {
+        position: absolute;
+        right: 0;
       }
       img {
         border-radius: 45%;
@@ -132,8 +140,8 @@
           font-size: 12px;
         }
         .line {
-          margin-top:10px;
-          margin-bottom:0px;
+          margin-top: 10px;
+          margin-bottom: 0px;
           border-bottom: 1.95px solid black;
         }
         .popup-payment {
@@ -198,6 +206,14 @@
           margin-bottom: 20px;
           border-bottom: 1.95px solid black;
         }
+        .UPLOAD {
+          position: absolute;
+          right: 0;
+          color: white;
+          font-size: 25px;
+          margin-top: 6%;
+          margin-right: 5%;
+        }
       }
 
       @media only screen and (min-width: 651px) {
@@ -207,7 +223,6 @@
         .button-container {
           display: none;
         }
-        /* Adjust container size to 60% on screens wider than 600px */
         .Big-container {
           width: 50%;
         }
@@ -216,6 +231,14 @@
         }
         .container {
           width: 40%;
+        }
+        .UPLOAD {
+          position: absolute;
+          right: 0;
+          color: white;
+          font-size: 25px;
+          margin-top: 2%;
+          margin-right: 5%;
         }
         .Top-Topic-Container {
           width: 60%;
@@ -293,6 +316,12 @@
     <p>
       <img src="Profile Pic.jpg" alt="Admin" style="width: 80px" />
       <span class="ADMIN"><strong>17-karthick-03</strong></span>
+      <a
+        class="UPLOAD"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSep32a21CPeZLeZGs1KScqEuAJpMOD--AJeCnpx_U_jSkQXIQ/viewform?usp=sf_link"
+        aria-hidden="true"
+        ><i class="fa fa-upload"></i
+      ></a>
     </p>
     <div class="line"></div>
     <div class="popup-container" id="popup">
