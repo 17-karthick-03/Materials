@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <style>
+      @media only screen and (min-width: 481px) {
+        body {
+          display: none; /* Hide the body for screens wider than 480px (mobile width) */
+        }
+      }
+      body {
+        padding-top: 80px; /* Add padding to the top to lift the content above footer_1 */
+        padding-bottom: 100px; /* Add padding to the bottom to prevent content from being hidden by footer */
+      }
+      .footer {
+        position: fixed;
+        bottom: 0; /* Position buttons at the bottom */
+        left: 0;
+        width: 100%;
+        height: 80px; /* Increased height of the footer */
+        background-color: #453042;
+        color: white;
+        display: flex;
+        justify-content: center; /* Center buttons horizontally */
+        align-items: center;
+        font-family: cursive;
+        font-size: 40px;
+        z-index: 999;
+      }
+      .footer button {
+        margin: 0 10px; /* Add some spacing between buttons */
+      }
+      .footer_1 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px; /* Increased height of the footer */
+        background-color: #453042;
+        color: white;
+        display: flex;
+        justify-content: center; /* Center text horizontally */
+        align-items: center;
+        font-family: cursive;
+        font-size: 40px;
+        z-index: 999;
+      }
+      .line {
+        border-bottom: 1.8px solid #ffffff;
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .Big-container {
+        background-color: #606060;
+        width: 95%;
+        padding: 8px;
+        border-radius: 12px;
+        position: relative;
+        margin: 20px auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        display: flex; /* Use flexbox */
+        align-items: center; /* Center items vertically */
+        border: 2.5px solid #e6e6e6;
+      }
+
+      .TEXT {
+        color: #ffffff;
+        margin-left: 20px; /* Adjust margin as needed */
+        font-size: 20px; /* Adjust font size as needed */
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        flex-grow: 1; /* Allow text to grow to fill available space */
+      }
+
+      .TEXT_2 {
+        color: #ffffff;
+        margin-left: 5%;
+        margin-bottom: 0;
+        font-size: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+    </style>
+    <link
+      href="https://unpkg.com/css.gg@2.0.0/icons/css/arrow-long-left-r.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/css.gg@2.0.0/icons/css/arrow-long-right-r.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body style="background: linear-gradient(#e66465, #9198e5)">
+    <div class="footer_1">Event Explorer</div>
+    <div class="footer">
+      <button
+        style="
+          padding: 6px 15px;
+          font-size: 20px;
+          border-radius: 10px;
+          font-family: cursive;
+          background-color: #e96f6f;
+          color: white;
+          border: none;
+        "
+        onclick="filter('All')"
+      >
+        ALL
+      </button>
+      <button
+        style="
+          padding: 6px 15px;
+          font-size: 20px;
+          border-radius: 10px;
+          font-family: cursive;
+          background-color: #e96f6f;
+          color: white;
+          border: none;
+        "
+        onclick="filter('Event')"
+      >
+        EVENT
+      </button>
+      <button
+        style="
+          padding: 6px 15px;
+          font-size: 20px;
+          border-radius: 10px;
+          font-family: cursive;
+          background-color: #e96f6f;
+          color: white;
+          border: none;
+        "
+        onclick="filter('Pro-Show')"
+      >
+        PRO-SHOW
+      </button>
+    </div>
+    <div class="Big-container All Event">
+      <img
+        src="Image_8.jpg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">
+        PitchForge
+      </p>
+    </div>
+    <div class="Big-container All Event">
+      <img
+        src="Image_9.jpg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">
+        The Twisted Heist
+      </p>
+    </div>
+    <div class="Big-container All Event">
+      <img
+        src="Image_10.jpg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">
+        Crack the Code
+      </p>
+    </div>
+    <div class="Big-container All Event">
+      <img
+        src="Image_11.jpg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">
+        App Fusion
+      </p>
+    </div>
+    <div class="Big-container All Pro-Show">
+      <img
+        src="Image_1.jpeg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">Pradeep Kumar Concert</p>
+    </div>
+    <div class="Big-container All Pro-Show">
+      <img
+        src="Image_2.jpeg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">RAVATOR ( DJ SET)</p>
+    </div>
+    <div class="Big-container All Pro-Show">
+      <img
+        src="Image_3.jpeg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">Third Party (Pro-Show)</p>
+    </div>
+    <div class="Big-container All Pro-Show">
+      <img
+        src="Image_4.jpeg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">Neeti Mohan (Pro-Show)</p>
+    </div>
+    <div class="Big-container All Event">
+      <img
+        src="Image_5.jpeg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">AR & VR Workshops</p>
+    </div>
+    <div class="Big-container All Event">
+      <img
+        src="Image_6.jpeg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">
+        Joker Coder
+      </p>
+    </div>
+    <div class="Big-container All Event">
+      <img
+        src="Image_7.jpeg"
+        alt="Event_1"
+        width="30%"
+        style="display: inline-block; border-radius: 16%"
+      />
+      <p class="TEXT" style="display: inline-block">
+        ProjectForge
+      </p>
+    </div>
+    <script>
+      function filter(category) {
+        const containers = document.querySelectorAll(".Big-container");
+        containers.forEach((container) => {
+          if (category === "All" || container.classList.contains(category)) {
+            container.style.display = "flex";
+          } else {
+            container.style.display = "none";
+          }
+        });
+      }
+      // Display 'All' events by default
+      filter("All");
+    </script>
+  </body>
+</html>
