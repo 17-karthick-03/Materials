@@ -1,186 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Event Explorer</title>
-<style>
-    @media only screen and (min-width: 481px) {
-        body {
-            display: none; /* Hide the body for screens wider than 480px (mobile width) */
-        }
-    }
-
-    body, html {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17-karthick-03</title>
+    <link
+      rel="icon"
+      href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRmoocE_3kDllUwV5siGiUdRjTQHul2D2RYPijgWLcpKmndsj-38NyzUmKPfQiHcOG_M3QPwysNrEcl0NtzBXV0-a6U0GHAEY29VBTkfMWDjLPvqc6qLolRHHcf7tJic2COHosVsvT4n5BlfqM9XdhsM92mbBSkd83znRTSICxJHgAH1N3bLA4uGjG-G4/s320/ICON.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      #OR {
+        display: block;
+      }
+      #Coffee {
+        display: none;
+      }
+      #QR-PAY {
+        display: none;
+        text-decoration: none;
+      }
+      #PAY-Gpay {
+        display: none;
+      }
+      .body {
         margin: 0;
-        background: linear-gradient(#e66465, #9198e5);
         padding: 0;
-        height: 100%;
-        overflow: hidden;
-    }
-    .carousel-container {
+        background-image: url(BG.jpg);
+        background-color: #0c0a0a;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .UPLOAD {
+        position: absolute;
+        right: 0;
+      }
+      img {
+        border-radius: 45%;
+        margin-top: 10px;
+        margin-left: 5%;
+        vertical-align: middle;
+      }
+      .ADMIN {
+        color: #b2b2b2;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        font-size: 20px;
+        text-align: center;
+      }
+      .line {
+        border-bottom: 1.8px solid white;
+        width: 100%;
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      .container {
+        background-color: rgba(255, 255, 255, 0.065);
+        width: auto;
+        padding: 20px;
+        border-radius: 25px;
         position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-    .carousel-slide {
-        display: none; /* Hide slides by default */
-        justify-content: center;
+        width: 80%;
+        cursor: pointer;
+        margin: 0 auto;
+        transition: background-color 0.3s;
+        text-align: center; /* Center text horizontally */
+      }
+      .container:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+      .Top-Topic-Container {
+        background-color: rgba(255, 255, 255, 0.075);
+        width: 60%;
+        padding: 10px;
+        border-radius: 25px;
+        margin-bottom: 20px; /* Add margin bottom */
+        text-align: center;
+        font-size: 13px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .TEXT {
+        color: #add8e6;
+        font-size: larger;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0 auto; /* Center text horizontally */
+      }
+      .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .container + .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .container + .container + .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .container + .container + .container + .container + .container {
+        margin-top: 20px; /* Add space between containers */
+      }
+      .Big-container {
+        background-color: #505050;
+        width: 75%;
+        padding: 30px;
+        border-radius: 25px;
+        position: relative;
+        margin: 50px auto; /* Center container horizontally and provide top margin */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.5s ease-in-out; /* Smooth transition */
-    }
-    .carousel-slide.active {
-        display: flex; /* Show active slide */
-    }
-    .carousel-image {
-        max-width: 80%;
-        max-height: 80%;
-        border-radius: 20px; /* Add rounded corners */
-        overflow: hidden; /* Ensure the border radius is applied correctly */
-    }
-    .footer {
+      }
+      .Big-container:hover {
+        background-color: rgba(150, 150, 150, 0.5);
+      }
+      .popup-payment {
+        width: 40%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      @media only screen and (max-width: 650px) {
+        /* Adjust container size to 80% on mobile screens */
+        .Big-container {
+          width: 80%;
+          background-color: #505050;
+        }
+        .Big-container:hover {
+          background-color: rgba(80, 80, 80, 0.95);
+        }
+        .container {
+          width: 80%;
+        }
+        .Top-Topic-Container {
+          width: 95%;
+          font-size: 12px;
+        }
+        .line {
+          margin-top: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1.95px solid black;
+        }
+        .popup-payment {
+          width: 100%;
+          margin: 0 auto;
+          object-fit: cover;
+          border-radius: 20px;
+        }
+        .body {
+          margin: 0;
+          padding: 0;
+          background-image: url(BG-600.jpg);
+          background-color: #0c0a0a;
+          background-size: cover;
+          background-attachment: fixed;
+        }
+        .ADMIN {
+          color: #202;
+        }
+        .popup-container {
+          width: 60%;
+        }
+        #PAY-Gpay {
+          display: block;
+        }
+        #UPI-2 {
+          display: none;
+        }
+        #QR {
+          display: none;
+        }
+        #Coffee {
+          display: block;
+        }
+        #QR-PAY {
+          display: block;
+          text-decoration: none;
+        }
+        .PAY {
+          text-decoration: none;
+        }
+        .button-container {
+          display: block;
+          text-align: center;
+          margin-bottom: 0px;
+        }
+        .button-container button {
+          margin: 5px;
+          border-radius: 10px;
+          color: #252525;
+          background-color: rgb(40, 187, 126);
+          border: none;
+          padding: 8px 10px;
+          font-size: large;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .line-2 {
+          display: block;
+          width: 100%;
+          display: block;
+          margin-top: 0px;
+          margin-bottom: 20px;
+          border-bottom: 1.95px solid black;
+        }
+        .UPLOAD {
+          position: absolute;
+          right: 0;
+          color: white;
+          font-size: 25px;
+          margin-top: 6%;
+          margin-right: 5%;
+        }
+      }
+
+      @media only screen and (min-width: 651px) {
+        .line-2 {
+          display: none;
+        }
+        .button-container {
+          display: none;
+        }
+        .Big-container {
+          width: 50%;
+        }
+        #PAY-Gpay-2 {
+          display: none;
+        }
+        .container {
+          width: 40%;
+        }
+        .UPLOAD {
+          position: absolute;
+          right: 0;
+          color: white;
+          font-size: 25px;
+          margin-top: 2%;
+          margin-right: 5%;
+        }
+        .Top-Topic-Container {
+          width: 60%;
+          font-size: 13px;
+        }
+      }
+
+      .COFFEE {
+        background-color: #111111;
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
-        height: 80px; /* Increased height of the footer */
-        background-color: #453042;
+        padding: 20px;
+        text-align: center;
+      }
+      .sticky-footer {
+        background-color: #252525;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 0px;
+        text-align: center;
+      }
+      .UPI {
+        color: #b2b2b2;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: medium;
+        text-align: center;
+      }
+      .popup-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 1);
         color: white;
-        display: flex;
-        justify-content: center; /* Center text horizontally */
-        align-items: center;
-        font-family:cursive; 
-        font-size: 40px; 
-        z-index: 999; 
-    }
-    .manual-control {
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        z-index: 9999;
+      }
+
+      /* Styles for the close button */
+      .close-btn {
         position: absolute;
-        top: 47%;
-        transform: translateY(-50%);
-        z-index: 999;
-    }
-    .manual-control button {
-        background-color: rgba(0, 0, 0, 0.5);
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: white;
+      }
+      .PAY {
+        margin: 0 auto;
+        background-color: #4caf50;
         color: white;
         border: none;
-        padding: 10px;
-        font-size: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-    }
-    .manual-control button:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    .left-button {
-        position: absolute;
-        left: 10px;
-    }
-
-    .banner-message {
-    position: absolute;
-    top: 16%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 30px;
-    font-family: cursive;
-    z-index: 999;
-    color: whitesmoke;
-    text-align: center; /* Center the text horizontally */
-}
-
-.explore-button {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #e96f6f;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    border-radius: 10px;
-    font-family: cursive;
-}
-
-.explore-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-</style>
-</head>
-<body>
-<div class="footer">Event Explorer</div>
-<div class="carousel-container">
-    <div class="banner-message">Trending Events & Pro-Show</div>
-    <div class="carousel-slide active">
-        <img class="carousel-image" src="Image_1.jpeg" alt="Image 1">
+        font-size: large;
+        border-radius: 20px;
+        margin-top: 10px;
+        text-decoration: none;
+        padding: 10px 20px;
+      }
+      a {
+        text-decoration: none;
+      }
+      .no-underline {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body class="body">
+    <p>
+      <img src="Profile Pic.jpg" alt="Admin" style="width: 80px" />
+      <span class="ADMIN"><strong>17-karthick-03</strong></span>
+      <a
+        class="UPLOAD"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSep32a21CPeZLeZGs1KScqEuAJpMOD--AJeCnpx_U_jSkQXIQ/viewform?usp=sf_link"
+        aria-hidden="true"
+        ><i class="fa fa-upload"></i
+      ></a>
+    </p>
+    <div class="line"></div>
+    <div class="popup-container" id="popup">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Thanks for downloading!!!</h2>
+      <h3>Buy me a cup of Coffee &#128578;</h3>
+      <img id="Coffee" src="Coffee.jpg" alt="Coffee" class="popup-payment" />
+      <img
+        id="QR"
+        src="Payment.jpg"
+        alt="17-karthick-03@axl"
+        class="popup-payment"
+      />
+      <a
+        href="https://pay.google.com/payments/u/0/sendMoney"
+        target="_blank"
+        rel="17-karthick-03@axl"
+        onclick="handlePayment(event)"
+        class="no-underline"
+      >
+        <button id="QR-PAY" class="PAY">Pay</button>
+      </a>
     </div>
-    <div class="carousel-slide">
-        <img class="carousel-image" src="Image_2.jpeg" alt="Image 2">
+    <div class="button-container">
+      <button onclick="scrollToContainer('OOAD')">OOAD</button>
+      <button onclick="scrollToContainer('DAA')">DAA</button>
+      <button onclick="scrollToContainer('DBMS')">DBMS</button>
+      <button onclick="scrollToContainer('PE')">PE</button>
+      <button onclick="scrollToContainer('PQT')">PQT</button>
     </div>
-    <div class="carousel-slide">
-        <img class="carousel-image" src="Image_3.jpeg" alt="Image 3">
+    <div class="line-2"></div>
+    <div class="Big-container" style="margin-top: 15px">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">
+          Database Management Systems - Lab <br />
+          (DBMS - Lab)
+        </h1>
+      </div>
+      <div
+        class="container"
+        data-url="DBMS-LAB Manual.pdf"
+        onclick="showPopup()"
+      >
+        <p class="TEXT">Lab Manual</p>
+      </div>
+      <div
+        class="container"
+        data-url="DBMS Ex-No-1 & 2.pdf"
+        onclick="showPopup()"
+      >
+        <p class="TEXT">Record</p>
+      </div>
     </div>
-    <div class="carousel-slide">
-        <img class="carousel-image" src="Image_4.jpeg" alt="Image 4">
+    <div class="Big-container">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">
+          Object Oriented Analysis and Design - Lab<br />
+          (OOAD - Lab)
+        </h1>
+      </div>
+      <div
+        class="container"
+        data-url="OOAD-LAB Manual.pdf"
+        onclick="showPopup()"
+      >
+        <p class="TEXT">Lab Manual</p>
+      </div>
     </div>
-    <div class="carousel-slide">
-        <img class="carousel-image" src="Image_5.jpeg" alt="Image 5">
+    <div class="Big-container" id="PQT">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">
+          Probability and Queuing Theory<br />
+          (PQT)
+        </h1>
+      </div>
+      <div class="container" data-url="PQT QB-New.pdf" onclick="showPopup()">
+        <p class="TEXT">Ques-Bank New</p>
+      </div>
+      <div class="container" data-url="PQT Unit-1.pdf" onclick="showPopup()">
+        <p class="TEXT">UNIT--I</p>
+      </div>
+      <div class="container" data-url="PQT Unit-2.pdf" onclick="showPopup()">
+        <p class="TEXT">UNIT--II</p>
+      </div>
     </div>
-    <div class="carousel-slide">
-        <img class="carousel-image" src="Image_6.jpeg" alt="Image 6">
+    <div class="Big-container" id="DBMS">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">Database Management Systems<br />(DBMS)</h1>
+      </div>
+      <div
+        class="container"
+        data-url="Silberschatz_A_databases_6th_ed.pdf"
+        onclick="showPopup()"
+      >
+        <p class="TEXT">Text Book</p>
+      </div>
+      <div class="container" data-url="DBMS QB-New.pdf" onclick="showPopup()">
+        <p class="TEXT">Ques-Bank New</p>
+      </div>
     </div>
-    <!-- Add more slides as needed -->
-</div>
+    <div class="Big-container" id="DAA">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">
+          Design and Analysis of Algorithm<br />
+          (DAA)
+        </h1>
+      </div>
 
-<div class="manual-control">
-    <button class="left-button" onclick="prevSlide()">&#10094;</button>
-</div>
+      <div
+        class="container"
+        onclick="showPopup()"
+        data-url="Introduction-to-the-Design-and-Analysis-of-Algorithms-3rd-edition-booksfree.org_.pdf"
+      >
+        <p class="TEXT">Text Book</p>
+      </div>
+      <div class="container" data-url="DAA QB-Old.pdf" onclick="showPopup()">
+        <p class="TEXT">Ques-Bank Old</p>
+      </div>
+    </div>
+    <div class="Big-container" id="CA">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">Computer Architecture<br />(CA)</h1>
+      </div>
+      <div
+        class="container"
+        onclick="showPopup()"
+        data-url="Computer-organization-and-design-5-th-edition-patterson-hennessy.pdf"
+      >
+        <p class="TEXT">Text Book</p>
+      </div>
+      <div class="container" onclick="showPopup()" data-url="CA QB-New.pdf">
+        <p class="TEXT">Ques-Bank New</p>
+      </div>
+    </div>
+    <div class="Big-container" id="OOAD">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">
+          Object Oriented Analysis and Design<br />(OOAD)
+        </h1>
+      </div>
+      <div
+        class="container"
+        onclick="showPopup()"
+        data-url="applying-uml-and-patterns-an-introduction-to-object-oriented-analysis-and-design-and-iterative-development.pdf"
+      >
+        <p class="TEXT">Text Book</p>
+      </div>
+      <div class="container" onclick="showPopup()" data-url="OOAD QB-New.pdf">
+        <p class="TEXT">Ques-Bank New</p>
+      </div>
+    </div>
+    <div class="Big-container" id="PE">
+      <div class="Top-Topic-Container">
+        <h1 style="color: white">Professional Ethics<br />(PE)</h1>
+      </div>
+      <div
+        class="container"
+        onclick="showPopup()"
+        data-url="Professional-Ethics-and-Human-Values-by-R.S-NAAGARAZAN.pdf"
+      >
+        <p class="TEXT">Text Book</p>
+      </div>
+      <div class="container" onclick="showPopup()" data-url="PE QB-New.pdf">
+        <p class="TEXT">Ques-Bank New</p>
+      </div>
+      <p></p>
+    </div>
+    <div class="sticky-footer">
+      <p></p>
+      <b class="UPI">Buy me a cup of </b>
+      <div></div>
+      <b class="UPI">Coffee (Rs:36.75) or Tea (Rs:15)</b>
+      <div></div>
+      <strong id="UPI-2" class="UPI">UPI ID : 17-karthick-03@axl</strong>
+      <a
+        href="https://pay.google.com/payments/u/0/sendMoney"
+        target="_blank"
+        rel="17-karthick-03@axl"
+        onclick="handlePayment2(event)"
+      >
+        <button id="PAY-Gpay-2" class="PAY">Pay</button>
+      </a>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var containers = document.querySelectorAll(".container");
 
-<button class="explore-button" onclick="redirectToEventPage()">Explore More</button>
+        containers.forEach(function (container) {
+          container.addEventListener("click", function () {
+            var url = container.getAttribute("data-url");
 
-<script>
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
+            var link = document.createElement("a");
+            link.href = url;
+            link.download = "";
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
+            document.body.appendChild(link);
+            link.click();
+
+            document.body.removeChild(link);
+          });
         });
-    }
+      });
+      function showPopup() {
+        document.getElementById("popup").style.display = "block";
+      }
 
-    function nextSlide() {
-        const prevSlide = currentSlide;
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-        slides[prevSlide].style.transform = 'translateX(-100%)';
-        slides[currentSlide].style.transform = 'translateX(0)';
-    }
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+      function handlePayment(event) {
+        event.preventDefault();
 
-    function prevSlide() {
-        const prevSlide = currentSlide;
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-        slides[prevSlide].style.transform = 'translateX(100%)';
-        slides[currentSlide].style.transform = 'translateX(0)';
-    }
+        const upiID = "17.karthick.03@okhdfcbank";
 
-    // Function to redirect to event.html
-    function redirectToEventPage() {
-        window.location.href = 'Event.html';
-    }
+        const amount = 15;
 
-    // Start automatic sliding
-    setInterval(nextSlide, 3000);
-</script>
-</body>
+        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=INR&tn=Payment%20for%20Coffee`;
+        window.open(paymentURL, "_blank");
+      }
+      function handlePayment2(event) {
+        event.preventDefault();
+
+        const upiID = "17.karthick.03@okhdfcbank";
+
+        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&cu=INR&tn=Payment%20for%20Coffee(Rs 36.75)%20or%20Tea(Rs 15)`;
+        window.open(paymentURL, "_blank");
+      }
+      function scrollToContainer(containerId) {
+        var container = document.getElementById(containerId);
+        if (container) {
+          // Scroll to the top of the container with smooth behavior
+          container.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+    </script>
+  </body>
 </html>
