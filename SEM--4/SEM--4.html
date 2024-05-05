@@ -569,6 +569,9 @@
           });
         });
       });
+      function showPopup() {
+        document.getElementById("popup").style.display = "block";
+      }
 
       function closePopup() {
         document.getElementById("popup").style.display = "none";
@@ -598,18 +601,6 @@
           container.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
-      function showPopup() {
-      // Prompt the user for a password
-      var password = prompt("Enter password:");
-      // Check if the password is correct
-      if (password === "9514192195") {
-        // If password is correct, display the popup
-        document.getElementById("popup").style.display = "block";
-      } else {
-        // If password is incorrect or cancelled, prevent the download
-        return false;
-      }
-    }
     </script>
   </body>
 </html>
