@@ -417,11 +417,7 @@
       >
         <p class="TEXT">Lab Manual</p>
       </div>
-       <div
-        class="container"
-        data-url="Exp_No_1.zip"
-        onclick="showPopup()"
-      >
+      <div class="container" data-url="Exp_No_1.zip" onclick="showPopup()">
         <p class="TEXT">Exp_No --> 1</p>
       </div>
     </div>
@@ -603,6 +599,18 @@
         if (container) {
           // Scroll to the top of the container with smooth behavior
           container.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+      function showPopup() {
+        // Prompt the user for a password
+        var password = prompt("Enter password:");
+        // Check if the password is correct
+        if (password === "9514192195") {
+          // If password is correct, display the popup
+          document.getElementById("popup").style.display = "block";
+        } else {
+          // If password is incorrect or cancelled, prevent the download
+          return false;
         }
       }
     </script>
