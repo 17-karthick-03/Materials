@@ -417,7 +417,11 @@
       >
         <p class="TEXT">Lab Manual</p>
       </div>
-      <div class="container" data-url="OOAD Exp_1 (RECORD).zip" onclick="showPopup()">
+      <div
+        class="container"
+        data-url="OOAD Exp_1 (RECORD).zip"
+        onclick="showPopup()"
+      >
         <p class="TEXT">Exp_No -> 1 (RECORD)</p>
       </div>
       <div class="container" data-url="Exp-1 OOAD.zip" onclick="showPopup()">
@@ -579,35 +583,34 @@
       function closePopup() {
         document.getElementById("popup").style.display = "none";
       }
-      <script>
-  function handlePayment(event) {
-    event.preventDefault();
 
-    const upiID = "17.karthick.03@okhdfcbank";
-    const amount = 36.75;
-    const currency = "INR";
-    const transactionNote = "Payment for Coffee";
+      function handlePayment(event) {
+        event.preventDefault();
 
-    const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=${currency}&tn=${transactionNote}`;
-    
-    // Open the payment URL in a new tab
-    window.open(paymentURL, "_blank");
-  }
+        const upiID = "17.karthick.03@okhdfcbank";
+        const amount = 36.75;
+        const currency = "INR";
+        const transactionNote = "Payment for Coffee";
 
-  function handlePayment2(event) {
-    event.preventDefault();
+        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=${currency}&tn=${transactionNote}`;
 
-    const upiID = "17.karthick.03@okhdfcbank";
-    const amount = 36.75;
-    const currency = "INR";
-    const transactionNote = "Payment for Coffee (Rs 36.75) or Tea (Rs 15)";
+        // Open the payment URL in a new tab
+        window.open(paymentURL, "_blank");
+      }
 
-    const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=${currency}&tn=${transactionNote}`;
-    
-    // Open the payment URL in a new tab
-    window.open(paymentURL, "_blank");
-  }
-</script>
+      function handlePayment2(event) {
+        event.preventDefault();
+
+        const upiID = "17.karthick.03@okhdfcbank";
+        const amount = 36.75;
+        const currency = "INR";
+        const transactionNote = "Payment for Coffee (Rs 36.75) or Tea (Rs 15)";
+
+        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=${currency}&tn=${transactionNote}`;
+
+        // Open the payment URL in a new tab
+        window.open(paymentURL, "_blank");
+      }
 
       function scrollToContainer(containerId) {
         var container = document.getElementById(containerId);
