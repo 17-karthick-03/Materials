@@ -587,12 +587,7 @@
       function handlePayment(event) {
         event.preventDefault();
 
-        const upiID = "17.karthick.03@okhdfcbank";
-        const amount = 36.75;
-        const currency = "INR";
-        const transactionNote = "Payment for Coffee";
-
-        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=${currency}&tn=${transactionNote}`;
+        const paymentURL = `https://buymeacoffee.com/17_bolt_03`;
 
         // Open the payment URL in a new tab
         window.open(paymentURL, "_blank");
@@ -601,12 +596,7 @@
       function handlePayment2(event) {
         event.preventDefault();
 
-        const upiID = "17.karthick.03@okhdfcbank";
-        const amount = 36.75;
-        const currency = "INR";
-        const transactionNote = "Payment for Coffee (Rs 36.75) or Tea (Rs 15)";
-
-        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=${currency}&tn=${transactionNote}`;
+        const paymentURL = `https://buymeacoffee.com/17_bolt_03`;
 
         // Open the payment URL in a new tab
         window.open(paymentURL, "_blank");
