@@ -580,23 +580,30 @@
         document.getElementById("popup").style.display = "none";
       }
       function handlePayment(event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        const upiID = "17.karthick.03-1@okhdfcbank";
+    const upiID = "17.karthick.03@okhdfcbank";
+    const amount = 36.75;
+    const currency = "INR";
+    const transactionNote = "Payment for Coffee";
 
-        const amount = 15;
+    const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=${currency}&tn=${transactionNote}`;
+    
+    // Open the payment URL in a new tab
+    window.open(paymentURL, "_blank");
+  }
 
-        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&am=${amount}&cu=INR&tn=Payment%20for%20Coffee`;
-        window.open(paymentURL, "_blank");
-      }
-      function handlePayment2(event) {
-        event.preventDefault();
+  function handlePayment2(event) {
+    event.preventDefault();
 
-        const upiID = "9514192195@yesg";
+    const upiID = "17.karthick.03@okhdfcbank";
+    const transactionNote = "Payment for Coffee (Rs 36.75) or Tea (Rs 15)";
 
-        const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&cu=INR&tn=Payment%20for%20Coffee(Rs 36.75)%20or%20Tea(Rs 15)`;
-        window.open(paymentURL, "_blank");
-      }
+    const paymentURL = `upi://pay?pa=${upiID}&pn=Payment&tn=${transactionNote}`;
+    
+    // Open the payment URL in a new tab
+    window.open(paymentURL, "_blank");
+  }
       function scrollToContainer(containerId) {
         var container = document.getElementById(containerId);
         if (container) {
