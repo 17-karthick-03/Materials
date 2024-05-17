@@ -103,7 +103,7 @@ def addBook():
     bookInfo3 = Entry(add_window)
     bookInfo3.grid(row=2, column=1, padx=10, pady=5)
     bookInfo4 = Entry(add_window)
-    bookInfo4.insert(0, 'Avail')  # Default status to 'avail'
+    bookInfo4.insert(0, 'avail')  # Default status to 'avail'
     lb4 = Label(add_window, text="Status(Avail/Issued) : ")
     lb4.grid(row=3, column=0, padx=10, pady=5)
     bookInfo4.grid(row=3, column=1, padx=10, pady=5)
