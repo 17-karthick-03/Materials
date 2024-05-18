@@ -207,6 +207,10 @@ def create_login_table():
     # Insert data into login table
     login_data = [
         ("142222104073", "17032005"),
+        ("142222104116", "27112004"),
+        ("142222104077", "19022005"),
+        ("142222104073", "17032005"),
+        ("142222104115", "22112005")
     ]
 
     cursor.executemany("INSERT INTO login VALUES (?, ?)", login_data)
