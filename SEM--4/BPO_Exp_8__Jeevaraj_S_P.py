@@ -61,6 +61,7 @@ class BPOManagementSystem:
     def create_employee_window(self):
         employee_window = tk.Toplevel(self.master)
         employee_window.title("Create New Employee")
+        employee_window.geometry("300x200")
 
         tk.Label(employee_window, text="Username:").grid(row=0, column=0, padx=10, pady=5)
         self.username_entry_new = tk.Entry(employee_window)
@@ -93,11 +94,10 @@ class BPOManagementSystem:
         password = self.password_entry.get()
         c.execute("SELECT * FROM employees WHERE username=? AND password=?", (username, password))
         employee = c.fetchone()
-        if employee:
-            if username == 'admin' and password == 'admin':
-                self.show_admin_page()
-            else:
-                self.show_employee_page()
+        if username == 'admin' and password == 'admin':
+            self.show_admin_page()
+        elif username != 'admin':
+            self.show_employee_page()
         else:
             messagebox.showerror("Error", "Invalid username or password!")
 
@@ -105,41 +105,44 @@ class BPOManagementSystem:
         self.master.withdraw()  # Hide login window
         admin_page = tk.Toplevel()
         admin_page.title("Admin Page")
+        admin_page.geometry("250x150")
 
         # Admin page UI
-        employee_details_button = tk.Button(admin_page, text="View Employee Details", command=self.view_employee_details)
-        employee_details_button.pack()
+        admin_frame = tk.Frame(admin_page, padx=20, pady=20)
+        admin_frame.pack(fill=tk.BOTH, expand=True)
 
-        agreements_details_button = tk.Button(admin_page, text="View Agreements Details", command=self.view_agreements_details)
-        agreements_details_button.pack()
+        employee_details_button = tk.Button(admin_frame, text="View Employee Details", command=self.view_employee_details)
+        employee_details_button.pack(pady=5)
 
-        payments_details_button = tk.Button(admin_page, text="View Payments Details", command=self.view_payments_details)
-        payments_details_button.pack()
-        
-        other_company_products_button = tk.Button(admin_page, text="View Other Company Products", command=self.view_other_company_products)
-        other_company_products_button.pack()
+        agreements_details_button = tk.Button(admin_frame, text="View Agreements Details", command=self.view_agreements_details)
+        agreements_details_button.pack(pady=5)
 
-        product_exchange_button = tk.Button(admin_page, text="Product Exchange", command=self.product_exchange)
-        product_exchange_button.pack()
+        payments_details_button = tk.Button(admin_frame, text="View Payments Details", command=self.view_payments_details)
+        payments_details_button.pack(pady=5)
 
     def show_employee_page(self):
         self.master.withdraw()  # Hide login window
         employee_page = tk.Toplevel()
         employee_page.title("Employee Page")
+        employee_page.geometry("250x150")
 
         # Employee page UI
-        self.create_agreement_button = tk.Button(employee_page, text="Create Agreement", command=self.create_agreement_window)
+        employee_frame = tk.Frame(employee_page, padx=20, pady=20)
+        employee_frame.pack(fill=tk.BOTH, expand=True)
+
+        self.create_agreement_button = tk.Button(employee_frame, text="Create Agreement", command=self.create_agreement_window)
         self.create_agreement_button.pack(pady=5)
 
-        self.make_payment_button = tk.Button(employee_page, text="Make Payment", command=self.make_payment_window)
+        self.make_payment_button = tk.Button(employee_frame, text="Make Payment", command=self.make_payment_window)
         self.make_payment_button.pack(pady=5)
 
-        self.complaint_feedback_button = tk.Button(employee_page, text="Complaint/Feedback", command=self.complaint_feedback_window)
+        self.complaint_feedback_button = tk.Button(employee_frame, text="Complaint/Feedback", command=self.complaint_feedback_window)
         self.complaint_feedback_button.pack(pady=5)
 
     def create_agreement_window(self):
         agreement_window = tk.Toplevel(self.master)
         agreement_window.title("Create Agreement")
+        agreement_window.geometry("270x170")
 
         tk.Label(agreement_window, text="Company Name:").grid(row=0, column=0, padx=10, pady=5)
         self.company_name_entry = tk.Entry(agreement_window)
@@ -169,13 +172,13 @@ class BPOManagementSystem:
                 c.execute("INSERT INTO agreements (company_name, product_name, quantity, date) VALUES (?, ?, ?, ?)", (company_name, product_name, quantity, date))
                 conn.commit()
                 messagebox.showinfo("Agreement Sent", "Agreement sent to other company!")
-                
             except sqlite3.IntegrityError:
                 messagebox.showerror("Error", "ERROR")
 
     def make_payment_window(self):
         payment_window = tk.Toplevel(self.master)
         payment_window.title("Make Payment")
+        payment_window.geometry("270x170")
 
         tk.Label(payment_window, text="Company Name:").grid(row=0, column=0, padx=10, pady=5)
         self.company_name_payment_entry = tk.Entry(payment_window)
@@ -196,17 +199,17 @@ class BPOManagementSystem:
         product_name = self.product_name_payment_entry.get()
         amount = self.amount_entry.get()
         if company_name and product_name and amount:
-             try:
+            try:
                 c.execute("INSERT INTO payments (company_name, product_name, amount) VALUES (?, ?, ?)", (company_name, product_name, amount))
                 conn.commit()
                 messagebox.showinfo("Payment Transfer", "Payment transfer is successful!")
-             
-             except sqlite3.IntegrityError:
+            except sqlite3.IntegrityError:
                 messagebox.showerror("Error", "ERROR")
 
     def complaint_feedback_window(self):
         complaint_feedback_window = tk.Toplevel(self.master)
         complaint_feedback_window.title("Complaint/Feedback")
+        complaint_feedback_window.geometry("270x170")
 
         tk.Label(complaint_feedback_window, text="Company Name:").grid(row=0, column=0, padx=10, pady=5)
         self.company_name_complaint_entry = tk.Entry(complaint_feedback_window)
@@ -238,10 +241,11 @@ class BPOManagementSystem:
         # Create a new window to display employee details
         employee_details_window = tk.Toplevel(self.master)
         employee_details_window.title("Employee Details")
+        employee_details_window.geometry("300x150")
 
         # Create a frame to hold the employee details
-        employee_frame = tk.Frame(employee_details_window)
-        employee_frame.pack(padx=20, pady=20)
+        employee_frame = tk.Frame(employee_details_window, padx=10, pady=10)
+        employee_frame.pack(fill=tk.BOTH, expand=True)
 
         # Header labels
         headers = ["ID", "Username", "Password", "Designation"]
@@ -261,10 +265,11 @@ class BPOManagementSystem:
         # Create a new window to display agreement details
         agreement_details_window = tk.Toplevel(self.master)
         agreement_details_window.title("Agreement Details")
+        agreement_details_window.geometry("400x150")
 
         # Create a frame to hold the agreement details
-        agreement_frame = tk.Frame(agreement_details_window)
-        agreement_frame.pack(padx=20, pady=20)
+        agreement_frame = tk.Frame(agreement_details_window, padx=10, pady=10)
+        agreement_frame.pack(fill=tk.BOTH, expand=True)
 
         # Header labels
         headers = ["ID", "Company Name", "Product Name", "Quantity", "Date"]
@@ -284,10 +289,11 @@ class BPOManagementSystem:
         # Create a new window to display payment details
         payment_details_window = tk.Toplevel(self.master)
         payment_details_window.title("Payment Details")
+        payment_details_window.geometry("350x150")
 
         # Create a frame to hold the payment details
-        payment_frame = tk.Frame(payment_details_window)
-        payment_frame.pack(padx=20, pady=20)
+        payment_frame = tk.Frame(payment_details_window, padx=10, pady=10)
+        payment_frame.pack(fill=tk.BOTH, expand=True)
 
         # Header labels
         headers = ["ID", "Company Name", "Product Name", "Amount"]
@@ -298,58 +304,6 @@ class BPOManagementSystem:
         for row_num, payment in enumerate(payments, start=1):
             for col, value in enumerate(payment):
                 tk.Label(payment_frame, text=value).grid(row=row_num, column=col, padx=5, pady=5)
-    def view_other_company_products(self):
-        # Fetch data from the products table
-        c.execute("SELECT * FROM products")
-        products = c.fetchall()
-
-        # Create a new window to display product details
-        product_details_window = tk.Toplevel(self.master)
-        product_details_window.title("Other Company Products")
-
-        # Create a frame to hold the product details
-        product_frame = tk.Frame(product_details_window)
-        product_frame.pack(padx=20, pady=20)
-
-        # Header labels
-        headers = ["ID", "Product Name", "Quantity"]
-        for col, header in enumerate(headers):
-            tk.Label(product_frame, text=header, font=('Helvetica', 10, 'bold')).grid(row=0, column=col, padx=5, pady=5)
-
-        # Display product details
-        for row_num, product in enumerate(products, start=1):
-            for col, value in enumerate(product):
-                tk.Label(product_frame, text=value).grid(row=row_num, column=col, padx=5, pady=5)
-
-    def product_exchange(self):
-        # Implement the functionality for product exchange here
-        pass
-
-    def view_products(self):
-        # Fetch data from the products table
-        c.execute("SELECT * FROM products")
-        products = c.fetchall()
-
-        # Create a new window to display product details
-        product_details_window = tk.Toplevel(self.master)
-        product_details_window.title("Products")
-
-        # Create a frame to hold the product details
-        product_frame = tk.Frame(product_details_window)
-        product_frame.pack(padx=20, pady=20)
-
-        # Header labels
-        headers = ["ID", "Product Name", "Quantity"]
-        for col, header in enumerate(headers):
-            tk.Label(product_frame, text=header, font=('Helvetica', 10, 'bold')).grid(row=0, column=col, padx=5, pady=5)
-
-        # Display product details
-        for row_num, product in enumerate(products, start=1):
-            for col, value in enumerate(product):
-                tk.Label(product_frame, text=value).grid(row=row_num, column=col, padx=5, pady=5)
-
-
-
 def main():
     root = tk.Tk()
     app = BPOManagementSystem(root)
