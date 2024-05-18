@@ -1,25 +1,29 @@
 import sqlite3
 from tkinter import *
 from tkinter import messagebox
+
 conn = sqlite3.connect('library.db')
 cur = conn.cursor()
+
 cur.execute('''CREATE TABLE IF NOT EXISTS books (
                 bid INTEGER PRIMARY KEY,
                 title TEXT,
                 author TEXT,
                 status TEXT
                 )''')
+
 cur.execute('''CREATE TABLE IF NOT EXISTS books_issued (
                 bid INTEGER PRIMARY KEY,
                 issueto TEXT
                 )''')
+
 def issue_book():
     bid = inf1.get()
     issueto = inf2.get()
     try:
         cur.execute("SELECT status FROM books WHERE bid = ?", (bid,))
         check = cur.fetchone()
-        if check and check[0] == 'avail':
+        if check and check[0] == 'Avail':
             cur.execute("INSERT INTO books_issued (bid, issueto) VALUES (?, ?)", (bid, issueto))
             cur.execute("UPDATE books SET status = 'issued' WHERE bid = ?", (bid,))
             conn.commit()
@@ -28,6 +32,7 @@ def issue_book():
             messagebox.showinfo('Message', "Book Already Issued or not available")
     except Exception as e:
         messagebox.showinfo("Error", f"Failed to issue book: {e}")
+
 def issue():
     global inf1, inf2
     issue_window = Tk()
@@ -44,6 +49,7 @@ def issue():
     issueBtn = Button(issue_window, text="Issue", command=issue_book)
     issueBtn.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
     issue_window.mainloop()
+
 def returnn():
     bid = bookInfo1.get()
     try:
@@ -51,13 +57,14 @@ def returnn():
         check = cur.fetchone()
         if check and check[0] == 'issued':
             cur.execute("DELETE FROM books_issued WHERE bid = ?", (bid,))
-            cur.execute("UPDATE books SET status = 'avail' WHERE bid = ?", (bid,))
+            cur.execute("UPDATE books SET status = 'Avail' WHERE bid = ?", (bid,))
             conn.commit()
             messagebox.showinfo('Success', "Book Returned Successfully")
         else:
             messagebox.showinfo('Message', "Please check the book ID")
     except Exception as e:
         messagebox.showinfo("Error", f"Failed to return book: {e}")
+
 def returnBook():
     global bookInfo1
     return_window = Tk()
@@ -70,6 +77,7 @@ def returnBook():
     SubmitBtn = Button(return_window, text="Return", command=returnn)
     SubmitBtn.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
     return_window.mainloop()
+
 def View():
     view_window = Tk()
     view_window.title("View Books")
@@ -85,6 +93,7 @@ def View():
     quitBtn = Button(view_window, text="Quit", command=view_window.destroy)
     quitBtn.grid(row=4, column=1, columnspan=4, padx=40, pady=10)
     view_window.mainloop()
+
 def addBook():
     global bookInfo1, bookInfo2, bookInfo3, bookInfo4
     add_window = Tk()
@@ -103,13 +112,14 @@ def addBook():
     bookInfo3 = Entry(add_window)
     bookInfo3.grid(row=2, column=1, padx=10, pady=5)
     bookInfo4 = Entry(add_window)
-    bookInfo4.insert(0, 'avail')  # Default status to 'avail'
-    lb4 = Label(add_window, text="Status(Avail/Issued) : ")
+    bookInfo4.insert(0, 'Avail')  # Default status to 'avail'
+    lb4 = Label(add_window, text="Status(Avail/issued) : ")
     lb4.grid(row=3, column=0, padx=10, pady=5)
     bookInfo4.grid(row=3, column=1, padx=10, pady=5)
     SubmitBtn = Button(add_window, text="SUBMIT", command=bookRegister)
     SubmitBtn.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
     add_window.mainloop()
+
 def deleteBook():
     bid = bookInfo1.get()
     try:
@@ -119,6 +129,7 @@ def deleteBook():
     except Exception as e:
         messagebox.showinfo("Error", f"Failed to delete book: {e}")
     bookInfo1.delete(0, END)
+
 def delete():
     global bookInfo1
     delete_window = Tk()
@@ -131,6 +142,7 @@ def delete():
     SubmitBtn = Button(delete_window, text="SUBMIT", command=deleteBook)
     SubmitBtn.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
     delete_window.mainloop()
+
 def bookRegister():
     global bookInfo1, bookInfo2, bookInfo3, bookInfo4
     bid = bookInfo1.get()
@@ -143,10 +155,12 @@ def bookRegister():
         messagebox.showinfo('Success', "Book added successfully")
     except Exception as e:
         messagebox.showinfo("Error", f"Can't add data into Database: {e}")
+
     bookInfo1.delete(0, END)
     bookInfo2.delete(0, END)
     bookInfo3.delete(0, END)
     bookInfo4.delete(0, END)
+
 def main():
     root = Tk()
     root.geometry("300x250")
@@ -162,6 +176,8 @@ def main():
     btn5 = Button(root, text="View Books", command=View)
     btn5.pack(pady=10)
     root.mainloop()
+
 if __name__ == "__main__":
     main()
+
 conn.close()
